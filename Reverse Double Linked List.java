@@ -1,6 +1,9 @@
-public void reverseList(DoubleNode head, DoubleNode tail) {
+  public void reverseList(DoubleNode head) {
         DoubleNode tempStart = head;
-        DoubleNode tempEnd = tail;
+        while (head.next != null){
+            head = head.next;
+        }
+        DoubleNode tempEnd = head;
         do{
             int temp = tempStart.val;
             tempStart.val = tempEnd.val;

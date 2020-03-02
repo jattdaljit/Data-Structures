@@ -1,4 +1,4 @@
-public class Test {
+public class ReverseAnArray {
 
     public static void main(String[] args) {
         int[] a = {1, 4, 6, 8, 7, 79};
