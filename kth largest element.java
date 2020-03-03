@@ -1,14 +1,35 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        for(int i = 0; i< nums.length -1; i++) {
-            for(int j = i+1; j< nums.length; j++) {
-                if(nums[j] > nums[i]) {
-                    int temp = nums[j];
-                    nums[j] = nums[i];
-                    nums[i] = temp;
+        int[] temp = new int[k];
+        int j=0;
+        int min = 0;
+
+        for(int i=0; i < nums.length; i++) {
+            if(j < temp.length) {
+                temp[j] = nums[i];
+                j++;
+            } else {
+                min = temp[0];
+                int index = 0;
+                for(int l=1; l < temp.length; l++) {
+                    if(temp[l] < min) {
+                        min = temp[l];
+                        index = l;
+                    }
+                }
+
+                if(nums[i] > min) {
+                    temp[index] = nums[i];
                 }
             }
         }
-        return nums[k-1];
-    }
+        min = temp[0];
+        for(int l=1; l < temp.length; l++) {
+            if(temp[l] < min) {
+                min = temp[l];
+            }
+        }
+        return min;
+
+    } 
 }
